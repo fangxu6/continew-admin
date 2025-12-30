@@ -1,0 +1,25 @@
+# WMS模块配置
+continew:
+  wms:
+    # 库存预警阈值
+    inventory:
+      warning-threshold: 10
+      # 是否启用负库存
+      allow-negative: false
+    # 作业配置
+    operation:
+      # 是否启用作业流程审批
+      require-approval: false
+      # 作业超时时间（分钟）
+      timeout: 1440
+
+spring:
+  datasource:
+    dynamic:
+      # WMS模块数据源配置
+      datasource:
+        wms:
+          url: jdbc:mysql://localhost:3306/continew_wms?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true
+          username: root
+          password: password
+          driver-class-name: com.mysql.cj.jdbc.Driver

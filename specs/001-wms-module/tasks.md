@@ -26,10 +26,10 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create continew-wms module directory structure per implementation plan
-- [ ] T002 Initialize Java 17 project with Spring Boot 3.3.12 dependencies in continew-wms/pom.xml
-- [ ] T003 [P] Configure Maven dependencies for MyBatis Plus, Sa-Token, Redisson, FastExcel, Crane4j, SpringDoc, Hutool
-- [ ] T004 [P] Configure project-wide code formatting and linting tools following Alibaba Java Coding Guidelines
+- [X] T001 Create continew-wms module directory structure per implementation plan
+- [X] T002 Initialize Java 17 project with Spring Boot 3.3.12 dependencies in continew-wms/pom.xml
+- [X] T003 [P] Configure Maven dependencies for MyBatis Plus, Sa-Token, Redisson, FastExcel, Crane4j, SpringDoc, Hutool
+- [X] T004 [P] Configure project-wide code formatting and linting tools following Alibaba Java Coding Guidelines
 
 ---
 
@@ -41,14 +41,14 @@
 
 Foundational tasks for WMS module:
 
-- [ ] T005 Setup database schema and migrations framework for WMS module in src/main/resources/db/changelog/mysql/wms/
-- [ ] T006 [P] Configure MySQL 8.0.42 database connection for WMS module in application.yml
-- [ ] T007 [P] Setup MyBatis Plus configuration for WMS module in continew-wms/src/main/java/top/continew/admin/wms/config/
-- [ ] T008 Create base entities, DTOs, and enums that all stories depend on
-- [ ] T009 Configure error handling and logging infrastructure for WMS module
-- [ ] T010 Setup environment configuration management for WMS module in continew-wms/src/main/java/top/continew/admin/wms/config/WmsConfig.java
-- [ ] T011 [P] Implement common validation utilities for WMS module in continew-wms/src/main/java/top/continew/admin/wms/validation/
-- [ ] T012 [P] Create base controller with common functionality in continew-wms/src/main/java/top/continew/admin/wms/controller/BaseController.java
+- [X] T005 Setup database schema and migrations framework for WMS module in src/main/resources/db/changelog/mysql/wms/
+- [X] T006 [P] Configure MySQL 8.0.42 database connection for WMS module in application.yml
+- [X] T007 [P] Setup MyBatis Plus configuration for WMS module in continew-wms/src/main/java/top/continew/admin/wms/config/
+- [X] T008 Create base entities, DTOs, and enums that all stories depend on
+- [X] T009 Configure error handling and logging infrastructure for WMS module
+- [X] T010 Setup environment configuration management for WMS module in continew-wms/src/main/java/top/continew/admin/wms/config/WmsConfig.java
+- [X] T011 [P] Implement common validation utilities for WMS module in continew-wms/src/main/java/top/continew/admin/wms/validation/
+- [X] T012 [P] Create base controller with common functionality in continew-wms/src/main/java/top/continew/admin/wms/controller/BaseController.java
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -62,49 +62,49 @@ Foundational tasks for WMS module:
 
 ### Implementation for User Story 1
 
-- [ ] T013 [P] [US1] Create Item entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Item.java
-- [ ] T014 [P] [US1] Create Location entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Location.java
-- [ ] T015 [P] [US1] Create Supplier entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Supplier.java
-- [ ] T016 [P] [US1] Create Customer entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Customer.java
-- [ ] T017 [P] [US1] Create Warehouse entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Warehouse.java
-- [ ] T018 [P] [US1] Create ItemReq DTO in continew-wms/src/main/java/top/continew/admin/wms/model/req/ItemReq.java
-- [ ] T019 [P] [US1] Create LocationReq DTO in continew-wms/src/main/java/top/continew/admin/wms/model/req/LocationReq.java
-- [ ] T020 [P] [US1] Create SupplierReq DTO in continew-wms/src/main/java/top/continew/admin/wms/model/req/SupplierReq.java
-- [ ] T021 [P] [US1] Create CustomerReq DTO in continew-wms/src/main/java/top/continew/admin/wms/model/req/CustomerReq.java
-- [ ] T022 [P] [US1] Create ItemResp DTO in continew-wms/src/main/java/top/continew/admin/wms/model/resp/ItemResp.java
-- [ ] T023 [P] [US1] Create LocationResp DTO in continew-wms/src/main/java/top/continew/admin/wms/model/resp/LocationResp.java
-- [ ] T024 [P] [US1] Create SupplierResp DTO in continew-wms/src/main/java/top/continew/admin/wms/model/resp/SupplierResp.java
-- [ ] T025 [P] [US1] Create CustomerResp DTO in continew-wms/src/main/java/top/continew/admin/wms/model/resp/CustomerResp.java
-- [ ] T026 [P] [US1] Create ItemQuery DTO in continew-wms/src/main/java/top/continew/admin/wms/model/query/ItemQuery.java
-- [ ] T027 [P] [US1] Create LocationQuery DTO in continew-wms/src/main/java/top/continew/admin/wms/model/query/LocationQuery.java
-- [ ] T028 [P] [US1] Create SupplierQuery DTO in continew-wms/src/main/java/top/continew/admin/wms/model/query/SupplierQuery.java
-- [ ] T029 [P] [US1] Create CustomerQuery DTO in continew-wms/src/main/java/top/continew/admin/wms/model/query/CustomerQuery.java
-- [ ] T030 [P] [US1] Create ItemMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/ItemMapper.java
-- [ ] T031 [P] [US1] Create LocationMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/LocationMapper.java
-- [ ] T032 [P] [US1] Create SupplierMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/SupplierMapper.java
-- [ ] T033 [P] [US1] Create CustomerMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/CustomerMapper.java
-- [ ] T034 [P] [US1] Create WarehouseMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/WarehouseMapper.java
-- [ ] T035 [US1] Create ItemService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/ItemService.java
-- [ ] T036 [US1] Create LocationService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/LocationService.java
-- [ ] T037 [US1] Create SupplierService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/SupplierService.java
-- [ ] T038 [US1] Create CustomerService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/CustomerService.java
-- [ ] T039 [US1] Create WarehouseService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/WarehouseService.java
-- [ ] T040 [US1] Create ItemController in continew-wms/src/main/java/top/continew/admin/wms/controller/ItemController.java
-- [ ] T041 [US1] Create LocationController in continew-wms/src/main/java/top/continew/admin/wms/controller/LocationController.java
-- [ ] T042 [US1] Create SupplierController in continew-wms/src/main/java/top/continew/admin/wms/controller/SupplierController.java
-- [ ] T043 [US1] Create CustomerController in continew-wms/src/main/java/top/continew/admin/wms/controller/CustomerController.java
-- [ ] T044 [US1] Create WarehouseController in continew-wms/src/main/java/top/continew/admin/wms/controller/WarehouseController.java
-- [ ] T045 [US1] Implement ItemMapper.xml in continew-wms/src/main/resources/mapper/ItemMapper.xml
-- [ ] T046 [US1] Implement LocationMapper.xml in continew-wms/src/main/resources/mapper/LocationMapper.xml
-- [ ] T047 [US1] Implement SupplierMapper.xml in continew-wms/src/main/resources/mapper/SupplierMapper.xml
-- [ ] T048 [US1] Implement CustomerMapper.xml in continew-wms/src/main/resources/mapper/CustomerMapper.xml
-- [ ] T049 [US1] Implement WarehouseMapper.xml in continew-wms/src/main/resources/mapper/WarehouseMapper.xml
-- [ ] T050 [US1] Add validation and error handling to all basic data management endpoints
-- [ ] T051 [US1] Add logging for basic data management operations
-- [ ] T052 [US1] Create ItemQuery query implementation in continew-wms/src/main/java/top/continew/admin/wms/service/impl/ItemServiceImpl.java
-- [ ] T053 [US1] Create LocationQuery query implementation in continew-wms/src/main/java/top/continew/admin/wms/service/impl/LocationServiceImpl.java
-- [ ] T054 [US1] Create SupplierQuery query implementation in continew-wms/src/main/java/top/continew/admin/wms/service/impl/SupplierServiceImpl.java
-- [ ] T055 [US1] Create CustomerQuery query implementation in continew-wms/src/main/java/top/continew/admin/wms/service/impl/CustomerServiceImpl.java
+- [X] T013 [P] [US1] Create Item entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Item.java
+- [X] T014 [P] [US1] Create Location entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Location.java
+- [X] T015 [P] [US1] Create Supplier entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Supplier.java
+- [X] T016 [P] [US1] Create Customer entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Customer.java
+- [X] T017 [P] [US1] Create Warehouse entity in continew-wms/src/main/java/top/continew/admin/wms/model/entity/Warehouse.java
+- [X] T018 [P] [US1] Create ItemReq DTO in continew-wms/src/main/java/top/continew/admin/wms/model/req/ItemReq.java
+- [X] T019 [P] [US1] Create LocationReq DTO in continew-wms/src/main/java/top/continew/admin/wms/model/req/LocationReq.java
+- [X] T020 [P] [US1] Create SupplierReq DTO in continew-wms/src/main/java/top/continew/admin/wms/model/req/SupplierReq.java
+- [X] T021 [P] [US1] Create CustomerReq DTO in continew-wms/src/main/java/top/continew/admin/wms/model/req/CustomerReq.java
+- [X] T022 [P] [US1] Create ItemResp DTO in continew-wms/src/main/java/top/continew/admin/wms/model/resp/ItemResp.java
+- [X] T023 [P] [US1] Create LocationResp DTO in continew-wms/src/main/java/top/continew/admin/wms/model/resp/LocationResp.java
+- [X] T024 [P] [US1] Create SupplierResp DTO in continew-wms/src/main/java/top/continew/admin/wms/model/resp/SupplierResp.java
+- [X] T025 [P] [US1] Create CustomerResp DTO in continew-wms/src/main/java/top/continew/admin/wms/model/resp/CustomerResp.java
+- [X] T026 [P] [US1] Create ItemQuery DTO in continew-wms/src/main/java/top/continew/admin/wms/model/query/ItemQuery.java
+- [X] T027 [P] [US1] Create LocationQuery DTO in continew-wms/src/main/java/top/continew/admin/wms/model/query/LocationQuery.java
+- [X] T028 [P] [US1] Create SupplierQuery DTO in continew-wms/src/main/java/top/continew/admin/wms/model/query/SupplierQuery.java
+- [X] T029 [P] [US1] Create CustomerQuery DTO in continew-wms/src/main/java/top/continew/admin/wms/model/query/CustomerQuery.java
+- [X] T030 [P] [US1] Create ItemMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/ItemMapper.java
+- [X] T031 [P] [US1] Create LocationMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/LocationMapper.java
+- [X] T032 [P] [US1] Create SupplierMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/SupplierMapper.java
+- [X] T033 [P] [US1] Create CustomerMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/CustomerMapper.java
+- [X] T034 [P] [US1] Create WarehouseMapper interface in continew-wms/src/main/java/top/continew/admin/wms/mapper/WarehouseMapper.java
+- [X] T035 [US1] Create ItemService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/ItemService.java
+- [X] T036 [US1] Create LocationService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/LocationService.java
+- [X] T037 [US1] Create SupplierService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/SupplierService.java
+- [X] T038 [US1] Create CustomerService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/CustomerService.java
+- [X] T039 [US1] Create WarehouseService interface and implementation in continew-wms/src/main/java/top/continew/admin/wms/service/WarehouseService.java
+- [X] T040 [US1] Create ItemController in continew-wms/src/main/java/top/continew/admin/wms/controller/ItemController.java
+- [X] T041 [US1] Create LocationController in continew-wms/src/main/java/top/continew/admin/wms/controller/LocationController.java
+- [X] T042 [US1] Create SupplierController in continew-wms/src/main/java/top/continew/admin/wms/controller/SupplierController.java
+- [X] T043 [US1] Create CustomerController in continew-wms/src/main/java/top/continew/admin/wms/controller/CustomerController.java
+- [X] T044 [US1] Create WarehouseController in continew-wms/src/main/java/top/continew/admin/wms/controller/WarehouseController.java
+- [X] T045 [US1] Implement ItemMapper.xml in continew-wms/src/main/resources/mapper/ItemMapper.xml
+- [X] T046 [US1] Implement LocationMapper.xml in continew-wms/src/main/resources/mapper/LocationMapper.xml
+- [X] T047 [US1] Implement SupplierMapper.xml in continew-wms/src/main/resources/mapper/SupplierMapper.xml
+- [X] T048 [US1] Implement CustomerMapper.xml in continew-wms/src/main/resources/mapper/CustomerMapper.xml
+- [X] T049 [US1] Implement WarehouseMapper.xml in continew-wms/src/main/resources/mapper/WarehouseMapper.xml
+- [X] T050 [US1] Add validation and error handling to all basic data management endpoints
+- [X] T051 [US1] Add logging for basic data management operations
+- [X] T052 [US1] Create ItemQuery query implementation in continew-wms/src/main/java/top/continew/admin/wms/service/impl/ItemServiceImpl.java
+- [X] T053 [US1] Create LocationQuery query implementation in continew-wms/src/main/java/top/continew/admin/wms/service/impl/LocationServiceImpl.java
+- [X] T054 [US1] Create SupplierQuery query implementation in continew-wms/src/main/java/top/continew/admin/wms/service/impl/SupplierServiceImpl.java
+- [X] T055 [US1] Create CustomerQuery query implementation in continew-wms/src/main/java/top/continew/admin/wms/service/impl/CustomerServiceImpl.java
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -307,14 +307,14 @@ Foundational tasks for WMS module:
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T158 [P] Add Crane4j data filling container configurations in continew-wms/src/main/java/top/continew/admin/wms/container/
-- [ ] T159 [P] Add common utility classes in continew-wms/src/main/java/top/continew/admin/wms/util/
-- [ ] T160 [P] Add common constants in continew-wms/src/main/java/top/continew/admin/wms/constant/
-- [ ] T161 [P] Add enum classes for statuses and types in continew-wms/src/main/java/top/continew/admin/wms/enums/
-- [ ] T162 [P] Documentation updates in continew-wms/README.md
+- [X] T158 [P] Add Crane4j data filling container configurations in continew-wms/src/main/java/top/continew/admin/wms/container/
+- [X] T159 [P] Add common utility classes in continew-wms/src/main/java/top/continew/admin/wms/util/
+- [X] T160 [P] Add common constants in continew-wms/src/main/java/top/continew/admin/wms/constant/
+- [X] T161 [P] Add enum classes for statuses and types in continew-wms/src/main/java/top/continew/admin/wms/enums/
+- [X] T162 [P] Documentation updates in continew-wms/README.md
 - [ ] T163 Code cleanup and refactoring across all modules
 - [ ] T164 Performance optimization across all stories
-- [ ] T165 [P] Add unit tests in continew-wms/src/test/java/top/continew/admin/wms/
+- [X] T165 [P] Add unit tests in continew-wms/src/test/java/top/continew/admin/wms/
 - [ ] T166 Security hardening for all endpoints
 - [ ] T167 Run quickstart.md validation to ensure all functionality works as expected
 - [ ] T168 Add API documentation using SpringDoc
