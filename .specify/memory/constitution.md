@@ -1,40 +1,40 @@
 <!--
-Sync Impact Report:
-- Version change: N/A → 1.0.0 (initial constitution with specified principles)
-- Added principles: Modular Design with COLA Architecture, Alibaba Development Guidelines Compliance, Minimum Dependency Principle, Code Standardization and Style Consistency, Chinese Language for Speckit-Related Files
-- Added sections: Architecture and Design Constraints, Development Workflow
-- Templates requiring updates: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md
-- Follow-up TODOs: None
+同步影响报告:
+- 版本变更: N/A → 1.0.0 (包含指定原则的初始版本)
+- 新增原则: 模块化设计与COLA架构, 阿里巴巴开发规范合规, 最小依赖原则, 代码标准化与样式一致性, Speckit相关文件使用中文
+- 新增章节: 架构与设计约束, 开发工作流程
+- 需要更新的模板: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md
+- 后续待办事项: 无
 -->
-# ContiNew Admin Constitution
+# ContiNew Admin 项目章程
 
-## Core Principles
+## 核心原则
 
-### Modular Design with COLA Architecture
-All system components MUST follow the COLA (Clean Object-oriented and Layered Architecture) pattern. This includes clear separation of concerns across Domain, Application, Interface, and Infrastructure layers. Modules MUST be designed with high cohesion and low coupling, enabling independent development, testing, and deployment. Each module MUST have well-defined interfaces and minimal cross-module dependencies.
+### 模块化设计与COLA架构
+所有系统组件必须遵循COLA（Clean Object-oriented and Layered Architecture）模式。这包括在领域层、应用层、接口层和基础设施层之间明确关注点分离。模块必须以高内聚和低耦合的方式设计，以支持独立开发、测试和部署。每个模块必须具有明确定义的接口和最小的跨模块依赖关系。
 
-### Alibaba Development Guidelines Compliance
-All code MUST strictly adhere to the Alibaba Java Coding Guidelines. This includes naming conventions, code structure, documentation standards, and best practices for security and performance. Static analysis tools MUST be used to enforce compliance, and code reviews MUST verify adherence to these standards. All code submissions MUST pass SonarQube quality gates.
+### 阿里巴巴开发规范合规
+所有代码必须严格遵守阿里巴巴Java编码规范。这包括命名约定、代码结构、文档标准以及安全和性能的最佳实践。必须使用静态分析工具来强制执行合规性，代码审查必须验证对这些标准的遵守情况。所有代码提交必须通过SonarQube质量门禁。
 
-### Minimum Dependency Principle
-Code dependencies MUST be minimized following the principle of least privilege. External libraries SHOULD only be introduced when essential functionality cannot be achieved with existing dependencies. Internal module dependencies MUST be kept to a minimum, and circular dependencies are strictly prohibited. Dependency injection MUST be used to manage component relationships and reduce tight coupling.
+### 最小依赖原则
+代码依赖必须遵循最小权限原则进行最小化。只有在现有依赖无法实现基本功能时才应引入外部库。内部模块依赖必须保持在最低限度，严格禁止循环依赖。必须使用依赖注入来管理组件关系并减少紧耦合。
 
-### Code Standardization and Style Consistency
-Code formatting, naming conventions, and architectural patterns MUST be consistent across the entire codebase. All team members MUST use the same code formatters and style configurations. Code reviews MUST verify style consistency, and automated tools MUST enforce formatting standards. Documentation MUST follow a consistent structure and use standardized terminology.
+### 代码标准化与样式一致性
+代码格式、命名约定和架构模式必须在整个代码库中保持一致。所有团队成员必须使用相同的代码格式化程序和样式配置。代码审查必须验证样式一致性，自动化工具必须强制执行格式标准。文档必须遵循一致的结构并使用标准化的术语。
 
-### Chinese Language for Speckit-Related Files
-All Speckit-related files and documentation MUST be written in Chinese to ensure accessibility for the development team. This includes configuration files, templates, documentation, and comments within Speckit-related code. Internationalization considerations MUST be made for user-facing content, while internal development artifacts remain in Chinese for team efficiency.
+### Speckit相关文件使用中文
+所有Speckit相关文件和文档必须使用中文编写，以确保开发团队的可访问性。这包括配置文件、模板、文档以及Speckit相关代码中的注释。用户界面内容必须考虑国际化，而内部开发工件则使用中文以提高团队效率。
 
-## Architecture and Design Constraints
+## 架构与设计约束
 
-Module boundaries MUST be clearly defined with well-documented interfaces. The system MUST follow the COLA architecture pattern with distinct Domain, Application, Interface, and Infrastructure layers. Dependency injection frameworks MUST be used consistently across all modules. Service layer design MUST follow the principles of high cohesion and low coupling. Component isolation MUST be maintained to enable independent testing and deployment.
+模块边界必须明确定义并具有完善的接口文档。系统必须遵循COLA架构模式，具有明确的领域层、应用层、接口层和基础设施层。依赖注入框架必须在所有模块中一致使用。服务层设计必须遵循高内聚和低耦合的原则。必须保持组件隔离以支持独立测试和部署。
 
-## Development Workflow
+## 开发工作流程
 
-Code reviews are mandatory for all pull requests with at least one senior team member approval required. All changes MUST pass automated CI checks including code formatting, static analysis, unit tests, and security scans. Branch naming conventions MUST be followed, and feature branches SHOULD be kept small and focused to enable efficient review and integration. All code MUST comply with Alibaba Java Coding Guidelines before merging.
+所有拉取请求都必须进行代码审查，至少需要一位高级团队成员批准。所有更改必须通过自动化CI检查，包括代码格式化、静态分析、单元测试和安全扫描。必须遵循分支命名约定，功能分支应保持小而专注，以实现高效的审查和集成。所有代码在合并前必须符合阿里巴巴Java编码规范。
 
-## Governance
+## 治理
 
-This constitution supersedes all other development practices and guidelines within the ContiNew Admin project. Amendments to this constitution require formal documentation, team discussion, approval from project maintainers, and a migration plan for existing code. All pull requests and code reviews MUST verify compliance with these principles, and complexity must be justified with clear benefits that outweigh the added maintenance burden.
+本章程在ContiNew Admin项目中优先于所有其他开发实践和指南。对本章程的修订需要正式文档、团队讨论、项目维护者的批准以及现有代码的迁移计划。所有拉取请求和代码审查必须验证对这些原则的合规性，复杂性必须有明确的好处来证明其超过增加的维护负担。
 
-**Version**: 1.0.0 | **Ratified**: 2024-01-01 | **Last Amended**: 2025-12-30
+**版本**: 1.0.0 | **批准日期**: 2024-01-01 | **最后修订**: 2025-12-30
