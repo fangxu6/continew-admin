@@ -12,14 +12,3 @@ continew:
       require-approval: false
       # 作业超时时间（分钟）
       timeout: 1440
-
-spring:
-  datasource:
-    dynamic:
-      # WMS模块数据源配置
-      datasource:
-        wms:
-          url: jdbc:mysql://localhost:3306/continew_wms?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true
-          username: root
-          password: password
-          driver-class-name: com.mysql.cj.jdbc.Driver

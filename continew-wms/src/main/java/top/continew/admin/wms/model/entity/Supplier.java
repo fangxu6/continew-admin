@@ -2,6 +2,7 @@ package top.continew.admin.wms.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import top.continew.admin.common.base.model.BaseDO;
@@ -55,7 +56,7 @@ public class Supplier extends BaseDO {
     private String address;
     
     /**
-     * 供应商状态: 合作中/已终止
+     * 供应商状态: ENABLE-启用, DISABLE-禁用
      */
     private String status;
     
@@ -70,6 +71,12 @@ public class Supplier extends BaseDO {
     private String remark;
     
     /**
+     * 软删除标记: 0-未删除, 1-已删除
+     */
+    @TableLogic
+    private Boolean deleted;
+    
+    /**
      * 创建时间
      */
     private LocalDateTime createTime;
@@ -82,10 +89,10 @@ public class Supplier extends BaseDO {
     /**
      * 创建人
      */
-    private Long createBy;
+    private Long createUser;
     
     /**
      * 更新人
      */
-    private Long updateBy;
+    private Long updateUser;
 }

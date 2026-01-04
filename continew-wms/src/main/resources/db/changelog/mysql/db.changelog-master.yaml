@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/mysql/wms_table.sql
+  - include:
+      file: db/changelog/mysql/wms_data.sql
