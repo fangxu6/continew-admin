@@ -2,6 +2,7 @@ package top.continew.admin.wms.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import top.continew.admin.common.base.model.BaseDO;
@@ -66,7 +67,7 @@ public class Location extends BaseDO {
     private String position;
     
     /**
-     * 位置类型: 存储/拣选/暂存等
+     * 位置类型: STORAGE-存储, PICKING-拣选, RECEIVING-收货, SHIPPING-发货
      */
     private String type;
     
@@ -81,7 +82,7 @@ public class Location extends BaseDO {
     private BigDecimal usedCapacity;
     
     /**
-     * 位置状态: 可用/不可用/锁定
+     * 位置状态: AVAILABLE-可用, UNAVAILABLE-不可用, LOCKED-锁定
      */
     private String status;
     
@@ -89,6 +90,12 @@ public class Location extends BaseDO {
      * 备注
      */
     private String remark;
+    
+    /**
+     * 软删除标记: 0-未删除, 1-已删除
+     */
+    @TableLogic
+    private Boolean deleted;
     
     /**
      * 创建时间
@@ -103,10 +110,10 @@ public class Location extends BaseDO {
     /**
      * 创建人
      */
-    private Long createBy;
+    private Long createUser;
     
     /**
      * 更新人
      */
-    private Long updateBy;
+    private Long updateUser;
 }

@@ -2,6 +2,7 @@ package top.continew.admin.wms.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import top.continew.admin.common.base.model.BaseDO;
@@ -71,9 +72,15 @@ public class Item extends BaseDO {
     private BigDecimal weight;
     
     /**
-     * 物品状态: 启用/禁用
+     * 物品状态: ENABLE-启用, DISABLE-禁用
      */
     private String status;
+    
+    /**
+     * 软删除标记: 0-未删除, 1-已删除
+     */
+    @TableLogic
+    private Boolean deleted;
     
     /**
      * 创建时间
@@ -88,10 +95,10 @@ public class Item extends BaseDO {
     /**
      * 创建人
      */
-    private Long createBy;
+    private Long createUser;
     
     /**
      * 更新人
      */
-    private Long updateBy;
+    private Long updateUser;
 }
