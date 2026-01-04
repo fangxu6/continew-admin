@@ -6,7 +6,6 @@ import lombok.Data;
 import top.continew.admin.common.base.model.resp.BaseDetailResp;
 
 import java.io.Serial;
-import java.time.LocalDateTime;
 
 /**
  * 客户响应参数
@@ -51,16 +50,4 @@ public class CustomerResp  extends BaseDetailResp {
 
     @Schema(description = "备注")
     private String remark;
-
-    @Schema(description = "创建时间")
-    private LocalDateTime createTime;
-
-    @Schema(description = "更新时间")
-    private LocalDateTime updateTime;
-
-    @Schema(description = "创建人")
-    private Long createUser;
-
-    @Schema(description = "更新人")
-    private Long updateUser;
 }

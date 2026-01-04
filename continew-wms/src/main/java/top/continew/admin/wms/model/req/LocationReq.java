@@ -4,8 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import top.continew.starter.core.validation.group.CreateGroup;
-import top.continew.starter.core.validation.group.UpdateGroup;
 
 import java.io.Serial;
 import java.io.Serializable;

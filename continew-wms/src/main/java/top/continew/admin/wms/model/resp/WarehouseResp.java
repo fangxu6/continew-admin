@@ -6,18 +6,17 @@ import lombok.Data;
 import top.continew.admin.common.base.model.resp.BaseDetailResp;
 
 import java.io.Serial;
-import java.time.LocalDateTime;
 
 /**
- * 供应商响应参数
+ * 仓库响应参数
  *
  * @author 小aron
  * @since 2025/12/30
  */
 @Data
 @ExcelIgnoreUnannotated
-@Schema(description = "供应商响应参数")
-public class SupplierResp extends BaseDetailResp {
+@Schema(description = "仓库响应参数")
+public class WarehouseResp extends BaseDetailResp {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -25,29 +24,26 @@ public class SupplierResp extends BaseDetailResp {
     @Schema(description = "ID")
     private Long id;
 
-    @Schema(description = "供应商编码")
+    @Schema(description = "仓库编码")
     private String code;
 
-    @Schema(description = "供应商名称")
+    @Schema(description = "仓库名称")
     private String name;
 
-    @Schema(description = "联系人")
-    private String contact;
+    @Schema(description = "仓库地址")
+    private String address;
+
+    @Schema(description = "仓库类型: 普通仓/冷藏仓/危险品仓等")
+    private String type;
+
+    @Schema(description = "仓库状态: 启用/禁用")
+    private String status;
+
+    @Schema(description = "负责人")
+    private String manager;
 
     @Schema(description = "联系电话")
     private String phone;
-
-    @Schema(description = "邮箱")
-    private String email;
-
-    @Schema(description = "地址")
-    private String address;
-
-    @Schema(description = "供应商状态: 合作中/已终止")
-    private String status;
-
-    @Schema(description = "信用等级")
-    private String creditLevel;
 
     @Schema(description = "备注")
     private String remark;

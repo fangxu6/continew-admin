@@ -1,8 +1,11 @@
 package top.continew.admin.wms.model.resp;
 
+import cn.idev.excel.annotation.ExcelIgnoreUnannotated;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import top.continew.admin.common.base.model.resp.BaseDetailResp;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -13,8 +16,12 @@ import java.time.LocalDateTime;
  * @since 2025/12/30
  */
 @Data
+@ExcelIgnoreUnannotated
 @Schema(description = "物品响应参数")
-public class ItemResp {
+public class ItemResp extends BaseDetailResp {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Schema(description = "ID")
     private Long id;
@@ -48,16 +55,4 @@ public class ItemResp {
 
     @Schema(description = "物品状态: 启用/禁用")
     private String status;
-
-    @Schema(description = "创建时间")
-    private LocalDateTime createTime;
-
-    @Schema(description = "更新时间")
-    private LocalDateTime updateTime;
-
-    @Schema(description = "创建人")
-    private Long createBy;
-
-    @Schema(description = "更新人")
-    private Long updateBy;
 }
