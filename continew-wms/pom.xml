@@ -6,19 +6,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>top.continew</groupId>
+        <groupId>top.continew.admin</groupId>
         <artifactId>continew-admin</artifactId>
-        <version>4.2.0</version>
-        <relativePath>../pom.xml</relativePath>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>continew-wms</artifactId>
-    <name>continew-wms</name>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
     <description>WMS模块 - 仓库管理系统</description>
 
     <dependencies>
         <dependency>
-            <groupId>top.continew</groupId>
+            <groupId>top.continew.admin</groupId>
             <artifactId>continew-common</artifactId>
         </dependency>
 
