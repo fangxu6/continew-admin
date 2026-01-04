@@ -1,8 +1,8 @@
 package top.continew.admin.wms.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import top.continew.admin.wms.model.entity.CustomerDO;
+import top.continew.starter.data.mapper.BaseMapper;
 
 /**
  * 客户Mapper接口

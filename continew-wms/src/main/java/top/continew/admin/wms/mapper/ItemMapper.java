@@ -1,7 +1,7 @@
 package top.continew.admin.wms.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
+import top.continew.starter.data.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;import top.continew.starter.data.mapper.BaseMapper;
 import top.continew.admin.wms.model.entity.ItemDO;
 
 /**

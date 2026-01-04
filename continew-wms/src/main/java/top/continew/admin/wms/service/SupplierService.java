@@ -1,7 +1,6 @@
 package top.continew.admin.wms.service;
 
 import top.continew.admin.common.base.service.BaseService;
-import top.continew.admin.wms.model.entity.SupplierDO;
 import top.continew.admin.wms.model.req.SupplierReq;
 import top.continew.admin.wms.model.resp.SupplierResp;
 import top.continew.admin.wms.model.query.SupplierQuery;

@@ -1,7 +1,6 @@
 package top.continew.admin.wms.service;
 
 import top.continew.admin.common.base.service.BaseService;
-import top.continew.admin.wms.model.entity.CustomerDO;
 import top.continew.admin.wms.model.req.CustomerReq;
 import top.continew.admin.wms.model.resp.CustomerResp;
 import top.continew.admin.wms.model.query.CustomerQuery;

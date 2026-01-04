@@ -1,7 +1,5 @@
 package top.continew.admin.wms.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import top.continew.admin.common.base.service.BaseServiceImpl;
 import top.continew.admin.wms.mapper.WarehouseMapper;
 import top.continew.admin.wms.model.entity.WarehouseDO;
@@ -23,12 +21,4 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class WarehouseServiceImpl extends BaseServiceImpl<WarehouseMapper, WarehouseDO, WarehouseResp, WarehouseResp, WarehouseQuery, WarehouseReq> implements WarehouseService {
-
-    @Override
-    public LambdaQueryWrapper<WarehouseDO> getWrapper(WarehouseQuery query) {
-        return Wrappers.<WarehouseDO>lambdaQuery()
-            .like(query.getCode() != null, WarehouseDO::getCode, query.getCode())
-            .like(query.getName() != null, WarehouseDO::getName, query.getName())
-            .eq(query.getStatus() != null, WarehouseDO::getStatus, query.getStatus());
-    }
 }
