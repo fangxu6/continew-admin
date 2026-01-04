@@ -3,7 +3,7 @@ package top.continew.admin.wms.convert;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import top.continew.admin.wms.model.entity.Supplier;
+import top.continew.admin.wms.model.entity.SupplierDO;
 import top.continew.admin.wms.model.req.SupplierReq;
 import top.continew.admin.wms.model.resp.SupplierResp;
 
@@ -19,7 +19,7 @@ public interface SupplierConvert {
     SupplierConvert INSTANCE = Mappers.getMapper(SupplierConvert.class);
 
     @Mapping(target = "id", ignore = true)
-    Supplier req2Entity(SupplierReq req);
+	SupplierDO req2Entity(SupplierReq req);
 
-    SupplierResp entity2Resp(Supplier entity);
+    SupplierResp entity2Resp(SupplierDO entity);
 }

@@ -4,8 +4,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import top.continew.starter.core.validation.group.CreateGroup;
-import top.continew.starter.core.validation.group.UpdateGroup;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * 客户请求参数
@@ -15,18 +16,21 @@ import top.continew.starter.core.validation.group.UpdateGroup;
  */
 @Data
 @Schema(description = "客户请求参数")
-public class CustomerReq {
+public class CustomerReq implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Schema(description = "ID")
-    @NotNull(message = "ID不能为空", groups = UpdateGroup.class)
+    @NotNull(message = "ID不能为空")
     private Long id;
 
     @Schema(description = "客户编码", required = true)
-    @NotBlank(message = "客户编码不能为空", groups = {CreateGroup.class, UpdateGroup.class})
+    @NotBlank(message = "客户编码不能为空")
     private String code;
 
     @Schema(description = "客户名称", required = true)
-    @NotBlank(message = "客户名称不能为空", groups = {CreateGroup.class, UpdateGroup.class})
+    @NotBlank(message = "客户名称不能为空")
     private String name;
 
     @Schema(description = "联系人")

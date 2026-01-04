@@ -16,26 +16,26 @@ public class WmsEntityTest {
 
     @Test
     void testItemEntityNotNull() {
-        assertNotNull(Item.class, "Item entity should not be null");
+        assertNotNull(ItemDO.class, "Item entity should not be null");
     }
 
     @Test
     void testLocationEntityNotNull() {
-        assertNotNull(Location.class, "Location entity should not be null");
+        assertNotNull(LocationDO.class, "Location entity should not be null");
     }
 
     @Test
     void testSupplierEntityNotNull() {
-        assertNotNull(Supplier.class, "Supplier entity should not be null");
+        assertNotNull(SupplierDO.class, "Supplier entity should not be null");
     }
 
     @Test
     void testCustomerEntityNotNull() {
-        assertNotNull(Customer.class, "Customer entity should not be null");
+        assertNotNull(CustomerDO.class, "Customer entity should not be null");
     }
 
     @Test
     void testWarehouseEntityNotNull() {
-        assertNotNull(Warehouse.class, "Warehouse entity should not be null");
+        assertNotNull(WarehouseDO.class, "Warehouse entity should not be null");
     }
 }

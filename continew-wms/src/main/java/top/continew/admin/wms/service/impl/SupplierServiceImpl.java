@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.hutool.core.util.StrUtil;
 import top.continew.admin.wms.convert.SupplierConvert;
 import top.continew.admin.wms.mapper.SupplierMapper;
-import top.continew.admin.wms.model.entity.Supplier;
+import top.continew.admin.wms.model.entity.SupplierDO;
 import top.continew.admin.wms.model.req.SupplierReq;
 import top.continew.admin.wms.model.resp.SupplierResp;
 import top.continew.admin.wms.model.query.SupplierQuery;
@@ -24,24 +24,24 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class SupplierServiceImpl extends ServiceImpl<SupplierMapper, Supplier> implements SupplierService {
+public class SupplierServiceImpl extends ServiceImpl<SupplierMapper, SupplierDO> implements SupplierService {
 
     @Override
     public SupplierResp get(Long id) {
-        Supplier entity = this.getById(id);
+        SupplierDO entity = this.getById(id);
         return SupplierConvert.INSTANCE.entity2Resp(entity);
     }
 
     @Override
     public SupplierResp create(SupplierReq req) {
-        Supplier entity = SupplierConvert.INSTANCE.req2Entity(req);
+        SupplierDO entity = SupplierConvert.INSTANCE.req2Entity(req);
         this.save(entity);
         return SupplierConvert.INSTANCE.entity2Resp(entity);
     }
 
     @Override
     public SupplierResp update(SupplierReq req) {
-        Supplier entity = SupplierConvert.INSTANCE.req2Entity(req);
+        SupplierDO entity = SupplierConvert.INSTANCE.req2Entity(req);
         this.updateById(entity);
         return SupplierConvert.INSTANCE.entity2Resp(entity);
     }
@@ -52,10 +52,10 @@ public class SupplierServiceImpl extends ServiceImpl<SupplierMapper, Supplier> i
     }
 
     @Override
-    public LambdaQueryWrapper<Supplier> getWrapper(SupplierQuery query) {
-        return Wrappers.<Supplier>lambdaQuery()
-            .like(StrUtil.isNotBlank(query.getCode()), Supplier::getCode, query.getCode())
-            .like(StrUtil.isNotBlank(query.getName()), Supplier::getName, query.getName())
-            .eq(StrUtil.isNotBlank(query.getStatus()), Supplier::getStatus, query.getStatus());
+    public LambdaQueryWrapper<SupplierDO> getWrapper(SupplierQuery query) {
+        return Wrappers.<SupplierDO>lambdaQuery()
+            .like(StrUtil.isNotBlank(query.getCode()), SupplierDO::getCode, query.getCode())
+            .like(StrUtil.isNotBlank(query.getName()), SupplierDO::getName, query.getName())
+            .eq(StrUtil.isNotBlank(query.getStatus()), SupplierDO::getStatus, query.getStatus());
     }
 }

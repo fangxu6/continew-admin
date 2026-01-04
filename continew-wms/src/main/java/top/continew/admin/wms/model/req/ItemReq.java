@@ -4,9 +4,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import top.continew.starter.core.validation.group.CreateGroup;
-import top.continew.starter.core.validation.group.UpdateGroup;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -17,18 +17,21 @@ import java.math.BigDecimal;
  */
 @Data
 @Schema(description = "物品请求参数")
-public class ItemReq {
+public class ItemReq implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Schema(description = "ID")
-    @NotNull(message = "ID不能为空", groups = UpdateGroup.class)
+    @NotNull(message = "ID不能为空")
     private Long id;
 
     @Schema(description = "物品编码", required = true)
-    @NotBlank(message = "物品编码不能为空", groups = {CreateGroup.class, UpdateGroup.class})
+    @NotBlank(message = "物品编码不能为空")
     private String code;
 
     @Schema(description = "物品名称", required = true)
-    @NotBlank(message = "物品名称不能为空", groups = {CreateGroup.class, UpdateGroup.class})
+    @NotBlank(message = "物品名称不能为空")
     private String name;
 
     @Schema(description = "物品描述")
@@ -38,7 +41,7 @@ public class ItemReq {
     private String category;
 
     @Schema(description = "计量单位", required = true)
-    @NotBlank(message = "计量单位不能为空", groups = {CreateGroup.class, UpdateGroup.class})
+    @NotBlank(message = "计量单位不能为空")
     private String unit;
 
     @Schema(description = "长度")

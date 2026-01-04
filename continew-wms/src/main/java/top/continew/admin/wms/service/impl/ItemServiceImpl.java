@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.hutool.core.util.StrUtil;
 import top.continew.admin.wms.convert.ItemConvert;
 import top.continew.admin.wms.mapper.ItemMapper;
-import top.continew.admin.wms.model.entity.Item;
+import top.continew.admin.wms.model.entity.ItemDO;
 import top.continew.admin.wms.model.req.ItemReq;
 import top.continew.admin.wms.model.resp.ItemResp;
 import top.continew.admin.wms.model.query.ItemQuery;
@@ -24,24 +24,24 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements ItemService {
+public class ItemServiceImpl extends ServiceImpl<ItemMapper, ItemDO> implements ItemService {
 
     @Override
     public ItemResp get(Long id) {
-        Item entity = this.getById(id);
+        ItemDO entity = this.getById(id);
         return ItemConvert.INSTANCE.entity2Resp(entity);
     }
 
     @Override
     public ItemResp create(ItemReq req) {
-        Item entity = ItemConvert.INSTANCE.req2Entity(req);
+        ItemDO entity = ItemConvert.INSTANCE.req2Entity(req);
         this.save(entity);
         return ItemConvert.INSTANCE.entity2Resp(entity);
     }
 
     @Override
     public ItemResp update(ItemReq req) {
-        Item entity = ItemConvert.INSTANCE.req2Entity(req);
+        ItemDO entity = ItemConvert.INSTANCE.req2Entity(req);
         this.updateById(entity);
         return ItemConvert.INSTANCE.entity2Resp(entity);
     }
@@ -52,11 +52,11 @@ public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements It
     }
 
     @Override
-    public LambdaQueryWrapper<Item> getWrapper(ItemQuery query) {
-        return Wrappers.<Item>lambdaQuery()
-            .like(StrUtil.isNotBlank(query.getCode()), Item::getCode, query.getCode())
-            .like(StrUtil.isNotBlank(query.getName()), Item::getName, query.getName())
-            .eq(StrUtil.isNotBlank(query.getCategory()), Item::getCategory, query.getCategory())
-            .eq(StrUtil.isNotBlank(query.getStatus()), Item::getStatus, query.getStatus());
+    public LambdaQueryWrapper<ItemDO> getWrapper(ItemQuery query) {
+        return Wrappers.<ItemDO>lambdaQuery()
+            .like(StrUtil.isNotBlank(query.getCode()), ItemDO::getCode, query.getCode())
+            .like(StrUtil.isNotBlank(query.getName()), ItemDO::getName, query.getName())
+            .eq(StrUtil.isNotBlank(query.getCategory()), ItemDO::getCategory, query.getCategory())
+            .eq(StrUtil.isNotBlank(query.getStatus()), ItemDO::getStatus, query.getStatus());
     }
 }

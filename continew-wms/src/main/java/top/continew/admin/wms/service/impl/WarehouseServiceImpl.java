@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.hutool.core.util.StrUtil;
 import top.continew.admin.wms.convert.WarehouseConvert;
 import top.continew.admin.wms.mapper.WarehouseMapper;
-import top.continew.admin.wms.model.entity.Warehouse;
+import top.continew.admin.wms.model.entity.WarehouseDO;
 import top.continew.admin.wms.model.req.WarehouseReq;
 import top.continew.admin.wms.model.resp.WarehouseResp;
 import top.continew.admin.wms.model.query.WarehouseQuery;
@@ -24,24 +24,24 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class WarehouseServiceImpl extends ServiceImpl<WarehouseMapper, Warehouse> implements WarehouseService {
+public class WarehouseServiceImpl extends ServiceImpl<WarehouseMapper, WarehouseDO> implements WarehouseService {
 
     @Override
     public WarehouseResp get(Long id) {
-        Warehouse entity = this.getById(id);
+        WarehouseDO entity = this.getById(id);
         return WarehouseConvert.INSTANCE.entity2Resp(entity);
     }
 
     @Override
     public WarehouseResp create(WarehouseReq req) {
-        Warehouse entity = WarehouseConvert.INSTANCE.req2Entity(req);
+        WarehouseDO entity = WarehouseConvert.INSTANCE.req2Entity(req);
         this.save(entity);
         return WarehouseConvert.INSTANCE.entity2Resp(entity);
     }
 
     @Override
     public WarehouseResp update(WarehouseReq req) {
-        Warehouse entity = WarehouseConvert.INSTANCE.req2Entity(req);
+        WarehouseDO entity = WarehouseConvert.INSTANCE.req2Entity(req);
         this.updateById(entity);
         return WarehouseConvert.INSTANCE.entity2Resp(entity);
     }
@@ -52,10 +52,10 @@ public class WarehouseServiceImpl extends ServiceImpl<WarehouseMapper, Warehouse
     }
 
     @Override
-    public LambdaQueryWrapper<Warehouse> getWrapper(WarehouseQuery query) {
-        return Wrappers.<Warehouse>lambdaQuery()
-            .like(StrUtil.isNotBlank(query.getCode()), Warehouse::getCode, query.getCode())
-            .like(StrUtil.isNotBlank(query.getName()), Warehouse::getName, query.getName())
-            .eq(StrUtil.isNotBlank(query.getStatus()), Warehouse::getStatus, query.getStatus());
+    public LambdaQueryWrapper<WarehouseDO> getWrapper(WarehouseQuery query) {
+        return Wrappers.<WarehouseDO>lambdaQuery()
+            .like(StrUtil.isNotBlank(query.getCode()), WarehouseDO::getCode, query.getCode())
+            .like(StrUtil.isNotBlank(query.getName()), WarehouseDO::getName, query.getName())
+            .eq(StrUtil.isNotBlank(query.getStatus()), WarehouseDO::getStatus, query.getStatus());
     }
 }

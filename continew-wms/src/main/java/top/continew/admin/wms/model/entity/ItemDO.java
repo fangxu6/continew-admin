@@ -5,21 +5,25 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import top.continew.admin.common.base.model.BaseDO;
+import top.continew.admin.common.base.model.entity.BaseDO;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * 位置实体
+ * 物品实体
  *
  * @author 小aron
  * @since 2025/12/30
  */
 @Data
-@TableName("wms_location")
-public class Location extends BaseDO {
-    
+@TableName("wms_item")
+public class ItemDO extends BaseDO {
+	
+	@Serial
+    private static final long serialVersionUID = 1L;
+
     /**
      * 主键
      */
@@ -27,69 +31,54 @@ public class Location extends BaseDO {
     private Long id;
     
     /**
-     * 位置编码，唯一，必填
+     * 物品编码，唯一，必填
      */
     private String code;
     
     /**
-     * 位置名称，必填
+     * 物品名称，必填
      */
     private String name;
     
     /**
-     * 所属仓库ID，必填
+     * 物品描述
      */
-    private Long warehouseId;
+    private String description;
     
     /**
-     * 所属区域
+     * 物品类别
      */
-    private String area;
+    private String category;
     
     /**
-     * 排
+     * 计量单位
      */
-    private String row;
+    private String unit;
     
     /**
-     * 列
+     * 长度
      */
-    private String column;
+    private BigDecimal length;
     
     /**
-     * 层
+     * 宽度
      */
-    private String level;
+    private BigDecimal width;
     
     /**
-     * 位
+     * 高度
      */
-    private String position;
+    private BigDecimal height;
     
     /**
-     * 位置类型: STORAGE-存储, PICKING-拣选, RECEIVING-收货, SHIPPING-发货
+     * 重量
      */
-    private String type;
+    private BigDecimal weight;
     
     /**
-     * 容量
-     */
-    private BigDecimal capacity;
-    
-    /**
-     * 已用容量
-     */
-    private BigDecimal usedCapacity;
-    
-    /**
-     * 位置状态: AVAILABLE-可用, UNAVAILABLE-不可用, LOCKED-锁定
+     * 物品状态: ENABLE-启用, DISABLE-禁用
      */
     private String status;
-    
-    /**
-     * 备注
-     */
-    private String remark;
     
     /**
      * 软删除标记: 0-未删除, 1-已删除

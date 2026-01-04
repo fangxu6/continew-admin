@@ -2,7 +2,7 @@ package top.continew.admin.wms.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import top.continew.admin.wms.model.entity.Supplier;
+import top.continew.admin.wms.model.entity.SupplierDO;
 
 /**
  * 供应商Mapper接口
@@ -11,5 +11,5 @@ import top.continew.admin.wms.model.entity.Supplier;
  * @since 2025/12/30
  */
 @Mapper
-public interface SupplierMapper extends BaseMapper<Supplier> {
+public interface SupplierMapper extends BaseMapper<SupplierDO> {
 }

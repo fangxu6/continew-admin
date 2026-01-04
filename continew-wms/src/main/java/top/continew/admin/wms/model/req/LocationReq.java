@@ -7,6 +7,8 @@ import lombok.Data;
 import top.continew.starter.core.validation.group.CreateGroup;
 import top.continew.starter.core.validation.group.UpdateGroup;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -17,22 +19,25 @@ import java.math.BigDecimal;
  */
 @Data
 @Schema(description = "位置请求参数")
-public class LocationReq {
+public class LocationReq implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Schema(description = "ID")
-    @NotNull(message = "ID不能为空", groups = UpdateGroup.class)
+    @NotNull(message = "ID不能为空")
     private Long id;
 
     @Schema(description = "位置编码", required = true)
-    @NotBlank(message = "位置编码不能为空", groups = {CreateGroup.class, UpdateGroup.class})
+    @NotBlank(message = "位置编码不能为空")
     private String code;
 
     @Schema(description = "位置名称", required = true)
-    @NotBlank(message = "位置名称不能为空", groups = {CreateGroup.class, UpdateGroup.class})
+    @NotBlank(message = "位置名称不能为空")
     private String name;
 
     @Schema(description = "所属仓库ID", required = true)
-    @NotNull(message = "所属仓库ID不能为空", groups = {CreateGroup.class, UpdateGroup.class})
+    @NotNull(message = "所属仓库ID不能为空")
     private Long warehouseId;
 
     @Schema(description = "所属区域")

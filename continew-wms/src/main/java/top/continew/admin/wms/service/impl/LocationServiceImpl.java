@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.hutool.core.util.StrUtil;
 import top.continew.admin.wms.convert.LocationConvert;
 import top.continew.admin.wms.mapper.LocationMapper;
-import top.continew.admin.wms.model.entity.Location;
+import top.continew.admin.wms.model.entity.LocationDO;
 import top.continew.admin.wms.model.req.LocationReq;
 import top.continew.admin.wms.model.resp.LocationResp;
 import top.continew.admin.wms.model.query.LocationQuery;
@@ -24,24 +24,24 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class LocationServiceImpl extends ServiceImpl<LocationMapper, Location> implements LocationService {
+public class LocationServiceImpl extends ServiceImpl<LocationMapper, LocationDO> implements LocationService {
 
     @Override
     public LocationResp get(Long id) {
-        Location entity = this.getById(id);
+        LocationDO entity = this.getById(id);
         return LocationConvert.INSTANCE.entity2Resp(entity);
     }
 
     @Override
     public LocationResp create(LocationReq req) {
-        Location entity = LocationConvert.INSTANCE.req2Entity(req);
+        LocationDO entity = LocationConvert.INSTANCE.req2Entity(req);
         this.save(entity);
         return LocationConvert.INSTANCE.entity2Resp(entity);
     }
 
     @Override
     public LocationResp update(LocationReq req) {
-        Location entity = LocationConvert.INSTANCE.req2Entity(req);
+        LocationDO entity = LocationConvert.INSTANCE.req2Entity(req);
         this.updateById(entity);
         return LocationConvert.INSTANCE.entity2Resp(entity);
     }
@@ -52,12 +52,12 @@ public class LocationServiceImpl extends ServiceImpl<LocationMapper, Location> i
     }
 
     @Override
-    public LambdaQueryWrapper<Location> getWrapper(LocationQuery query) {
-        return Wrappers.<Location>lambdaQuery()
-            .like(StrUtil.isNotBlank(query.getCode()), Location::getCode, query.getCode())
-            .like(StrUtil.isNotBlank(query.getName()), Location::getName, query.getName())
-            .eq(query.getWarehouseId() != null, Location::getWarehouseId, query.getWarehouseId())
-            .eq(StrUtil.isNotBlank(query.getType()), Location::getType, query.getType())
-            .eq(StrUtil.isNotBlank(query.getStatus()), Location::getStatus, query.getStatus());
+    public LambdaQueryWrapper<LocationDO> getWrapper(LocationQuery query) {
+        return Wrappers.<LocationDO>lambdaQuery()
+            .like(StrUtil.isNotBlank(query.getCode()), LocationDO::getCode, query.getCode())
+            .like(StrUtil.isNotBlank(query.getName()), LocationDO::getName, query.getName())
+            .eq(query.getWarehouseId() != null, LocationDO::getWarehouseId, query.getWarehouseId())
+            .eq(StrUtil.isNotBlank(query.getType()), LocationDO::getType, query.getType())
+            .eq(StrUtil.isNotBlank(query.getStatus()), LocationDO::getStatus, query.getStatus());
     }
 }

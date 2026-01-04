@@ -7,18 +7,23 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import top.continew.admin.common.base.model.entity.BaseDO;
 
+import java.io.Serial;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * 客户实体
+ * 位置实体
  *
  * @author 小aron
  * @since 2025/12/30
  */
 @Data
-@TableName("wms_customer")
-public class Customer extends BaseDO {
-    
+@TableName("wms_location")
+public class LocationDO extends BaseDO {
+	
+	@Serial
+    private static final long serialVersionUID = 1L;
+
     /**
      * 主键
      */
@@ -26,44 +31,64 @@ public class Customer extends BaseDO {
     private Long id;
     
     /**
-     * 客户编码，唯一，必填
+     * 位置编码，唯一，必填
      */
     private String code;
     
     /**
-     * 客户名称，必填
+     * 位置名称，必填
      */
     private String name;
     
     /**
-     * 联系人
+     * 所属仓库ID，必填
      */
-    private String contact;
+    private Long warehouseId;
     
     /**
-     * 联系电话
+     * 所属区域
      */
-    private String phone;
+    private String area;
     
     /**
-     * 邮箱
+     * 排
      */
-    private String email;
+    private String row;
     
     /**
-     * 地址
+     * 列
      */
-    private String address;
+    private String column;
     
     /**
-     * 客户状态: ENABLE-启用, DISABLE-禁用
+     * 层
+     */
+    private String level;
+    
+    /**
+     * 位
+     */
+    private String position;
+    
+    /**
+     * 位置类型: STORAGE-存储, PICKING-拣选, RECEIVING-收货, SHIPPING-发货
+     */
+    private String type;
+    
+    /**
+     * 容量
+     */
+    private BigDecimal capacity;
+    
+    /**
+     * 已用容量
+     */
+    private BigDecimal usedCapacity;
+    
+    /**
+     * 位置状态: AVAILABLE-可用, UNAVAILABLE-不可用, LOCKED-锁定
      */
     private String status;
-    
-    /**
-     * 信用等级
-     */
-    private String creditLevel;
     
     /**
      * 备注

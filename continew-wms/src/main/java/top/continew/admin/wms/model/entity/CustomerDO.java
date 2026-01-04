@@ -5,21 +5,25 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import top.continew.admin.common.base.model.BaseDO;
+import top.continew.admin.common.base.model.entity.BaseDO;
 
-import java.math.BigDecimal;
+import java.io.Serial;
 import java.time.LocalDateTime;
 
+
 /**
- * 物品实体
+ * 客户实体
  *
  * @author 小aron
  * @since 2025/12/30
  */
 @Data
-@TableName("wms_item")
-public class Item extends BaseDO {
-    
+@TableName("wms_customer")
+public class CustomerDO extends BaseDO {
+
+	@Serial
+    private static final long serialVersionUID = 1L;
+	
     /**
      * 主键
      */
@@ -27,54 +31,49 @@ public class Item extends BaseDO {
     private Long id;
     
     /**
-     * 物品编码，唯一，必填
+     * 客户编码，唯一，必填
      */
     private String code;
     
     /**
-     * 物品名称，必填
+     * 客户名称，必填
      */
     private String name;
     
     /**
-     * 物品描述
+     * 联系人
      */
-    private String description;
+    private String contact;
     
     /**
-     * 物品类别
+     * 联系电话
      */
-    private String category;
+    private String phone;
     
     /**
-     * 计量单位
+     * 邮箱
      */
-    private String unit;
+    private String email;
     
     /**
-     * 长度
+     * 地址
      */
-    private BigDecimal length;
+    private String address;
     
     /**
-     * 宽度
-     */
-    private BigDecimal width;
-    
-    /**
-     * 高度
-     */
-    private BigDecimal height;
-    
-    /**
-     * 重量
-     */
-    private BigDecimal weight;
-    
-    /**
-     * 物品状态: ENABLE-启用, DISABLE-禁用
+     * 客户状态: ENABLE-启用, DISABLE-禁用
      */
     private String status;
+    
+    /**
+     * 信用等级
+     */
+    private String creditLevel;
+    
+    /**
+     * 备注
+     */
+    private String remark;
     
     /**
      * 软删除标记: 0-未删除, 1-已删除

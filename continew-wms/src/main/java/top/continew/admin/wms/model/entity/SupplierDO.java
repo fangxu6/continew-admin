@@ -5,8 +5,9 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import top.continew.admin.common.base.model.BaseDO;
+import top.continew.admin.common.base.model.entity.BaseDO;
 
+import java.io.Serial;
 import java.time.LocalDateTime;
 
 /**
@@ -17,8 +18,11 @@ import java.time.LocalDateTime;
  */
 @Data
 @TableName("wms_supplier")
-public class Supplier extends BaseDO {
-    
+public class SupplierDO extends BaseDO {
+	
+	@Serial
+    private static final long serialVersionUID = 1L;
+
     /**
      * 主键
      */
