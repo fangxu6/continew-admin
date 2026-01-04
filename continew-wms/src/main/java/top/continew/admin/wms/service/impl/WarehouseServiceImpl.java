@@ -2,9 +2,7 @@ package top.continew.admin.wms.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cn.hutool.core.util.StrUtil;
-import top.continew.admin.wms.convert.WarehouseConvert;
+import top.continew.admin.common.base.service.BaseServiceImpl;
 import top.continew.admin.wms.mapper.WarehouseMapper;
 import top.continew.admin.wms.model.entity.WarehouseDO;
 import top.continew.admin.wms.model.req.WarehouseReq;
@@ -24,38 +22,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class WarehouseServiceImpl extends ServiceImpl<WarehouseMapper, WarehouseDO> implements WarehouseService {
-
-    @Override
-    public WarehouseResp get(Long id) {
-        WarehouseDO entity = this.getById(id);
-        return WarehouseConvert.INSTANCE.entity2Resp(entity);
-    }
-
-    @Override
-    public WarehouseResp create(WarehouseReq req) {
-        WarehouseDO entity = WarehouseConvert.INSTANCE.req2Entity(req);
-        this.save(entity);
-        return WarehouseConvert.INSTANCE.entity2Resp(entity);
-    }
-
-    @Override
-    public WarehouseResp update(WarehouseReq req) {
-        WarehouseDO entity = WarehouseConvert.INSTANCE.req2Entity(req);
-        this.updateById(entity);
-        return WarehouseConvert.INSTANCE.entity2Resp(entity);
-    }
-
-    @Override
-    public void delete(Long id) {
-        this.removeById(id);
-    }
+public class WarehouseServiceImpl extends BaseServiceImpl<WarehouseMapper, WarehouseDO, WarehouseResp, WarehouseResp, WarehouseQuery, WarehouseReq> implements WarehouseService {
 
     @Override
     public LambdaQueryWrapper<WarehouseDO> getWrapper(WarehouseQuery query) {
         return Wrappers.<WarehouseDO>lambdaQuery()
-            .like(StrUtil.isNotBlank(query.getCode()), WarehouseDO::getCode, query.getCode())
-            .like(StrUtil.isNotBlank(query.getName()), WarehouseDO::getName, query.getName())
-            .eq(StrUtil.isNotBlank(query.getStatus()), WarehouseDO::getStatus, query.getStatus());
+            .like(query.getCode() != null, WarehouseDO::getCode, query.getCode())
+            .like(query.getName() != null, WarehouseDO::getName, query.getName())
+            .eq(query.getStatus() != null, WarehouseDO::getStatus, query.getStatus());
     }
 }

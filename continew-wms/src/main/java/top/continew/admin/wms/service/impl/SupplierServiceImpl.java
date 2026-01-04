@@ -2,9 +2,7 @@ package top.continew.admin.wms.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cn.hutool.core.util.StrUtil;
-import top.continew.admin.wms.convert.SupplierConvert;
+import top.continew.admin.common.base.service.BaseServiceImpl;
 import top.continew.admin.wms.mapper.SupplierMapper;
 import top.continew.admin.wms.model.entity.SupplierDO;
 import top.continew.admin.wms.model.req.SupplierReq;
@@ -24,38 +22,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class SupplierServiceImpl extends ServiceImpl<SupplierMapper, SupplierDO> implements SupplierService {
-
-    @Override
-    public SupplierResp get(Long id) {
-        SupplierDO entity = this.getById(id);
-        return SupplierConvert.INSTANCE.entity2Resp(entity);
-    }
-
-    @Override
-    public SupplierResp create(SupplierReq req) {
-        SupplierDO entity = SupplierConvert.INSTANCE.req2Entity(req);
-        this.save(entity);
-        return SupplierConvert.INSTANCE.entity2Resp(entity);
-    }
-
-    @Override
-    public SupplierResp update(SupplierReq req) {
-        SupplierDO entity = SupplierConvert.INSTANCE.req2Entity(req);
-        this.updateById(entity);
-        return SupplierConvert.INSTANCE.entity2Resp(entity);
-    }
-
-    @Override
-    public void delete(Long id) {
-        this.removeById(id);
-    }
+public class SupplierServiceImpl extends BaseServiceImpl<SupplierMapper, SupplierDO, SupplierResp, SupplierResp, SupplierQuery, SupplierReq> implements SupplierService {
 
     @Override
     public LambdaQueryWrapper<SupplierDO> getWrapper(SupplierQuery query) {
         return Wrappers.<SupplierDO>lambdaQuery()
-            .like(StrUtil.isNotBlank(query.getCode()), SupplierDO::getCode, query.getCode())
-            .like(StrUtil.isNotBlank(query.getName()), SupplierDO::getName, query.getName())
-            .eq(StrUtil.isNotBlank(query.getStatus()), SupplierDO::getStatus, query.getStatus());
+            .like(query.getCode() != null, SupplierDO::getCode, query.getCode())
+            .like(query.getName() != null, SupplierDO::getName, query.getName())
+            .eq(query.getStatus() != null, SupplierDO::getStatus, query.getStatus());
     }
 }

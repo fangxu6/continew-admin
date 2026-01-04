@@ -1,10 +1,9 @@
 package top.continew.admin.wms.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cn.hutool.core.util.StrUtil;
-import top.continew.admin.wms.convert.CustomerConvert;
+import top.continew.admin.common.base.service.BaseServiceImpl;
 import top.continew.admin.wms.mapper.CustomerMapper;
 import top.continew.admin.wms.model.entity.CustomerDO;
 import top.continew.admin.wms.model.req.CustomerReq;
@@ -24,38 +23,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, CustomerDO> implements CustomerService {
-
-    @Override
-    public CustomerResp get(Long id) {
-        CustomerDO entity = this.getById(id);
-        return CustomerConvert.INSTANCE.entity2Resp(entity);
-    }
-
-    @Override
-    public CustomerResp create(CustomerReq req) {
-        CustomerDO entity = CustomerConvert.INSTANCE.req2Entity(req);
-        this.save(entity);
-        return CustomerConvert.INSTANCE.entity2Resp(entity);
-    }
-
-    @Override
-    public CustomerResp update(CustomerReq req) {
-        CustomerDO entity = CustomerConvert.INSTANCE.req2Entity(req);
-        this.updateById(entity);
-        return CustomerConvert.INSTANCE.entity2Resp(entity);
-    }
-
-    @Override
-    public void delete(Long id) {
-        this.removeById(id);
-    }
+public class CustomerServiceImpl extends BaseServiceImpl<CustomerMapper, CustomerDO, CustomerResp, CustomerResp, CustomerQuery, CustomerReq> implements CustomerService {
 
     @Override
     public LambdaQueryWrapper<CustomerDO> getWrapper(CustomerQuery query) {
         return Wrappers.<CustomerDO>lambdaQuery()
-            .like(StrUtil.isNotBlank(query.getCode()), CustomerDO::getCode, query.getCode())
-            .like(StrUtil.isNotBlank(query.getName()), CustomerDO::getName, query.getName())
-            .eq(StrUtil.isNotBlank(query.getStatus()), CustomerDO::getStatus, query.getStatus());
+            .like(query.getCode() != null, CustomerDO::getCode, query.getCode())
+            .like(query.getName() != null, CustomerDO::getName, query.getName())
+            .eq(query.getStatus() != null, CustomerDO::getStatus, query.getStatus());
     }
 }
